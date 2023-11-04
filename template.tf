@@ -17,7 +17,6 @@ resource "aws_launch_template" "ec2_server" {
   network_interfaces {
     security_groups = [
       module.security_groups.security_group_http_id,
-      module.security_groups.security_group_https_id
     ]
   }
 }

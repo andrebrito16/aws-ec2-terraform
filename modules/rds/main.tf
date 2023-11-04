@@ -9,7 +9,7 @@ resource "aws_db_instance" "this" {
   engine                 = "postgres"
   vpc_security_group_ids = var.security_groups_ids
   instance_class         = "db.t3.micro"
-  db_name                = "application_db"
+  db_name                = "app"
   username               = "cloud"
   password               = "admin-cloudw-password-test"
   db_subnet_group_name   = aws_db_subnet_group.rds_subnet.name

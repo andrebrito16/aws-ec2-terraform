@@ -31,7 +31,6 @@ module "alb" {
   name    = var.alb_name
   alb_security_groups = [
     module.security_groups.security_group_http_id,
-    module.security_groups.security_group_https_id
   ]
 }
 
@@ -47,11 +46,10 @@ module "ec2" {
   launch_template_id   = aws_launch_template.ec2_server.id
 }
 
-# module "rds" {
-#   source = "./modules/rds"
-#   security_groups_ids = [
-#     module.security_groups.security_group_http_id,
-#     module.security_groups.security_group_https_id
-#   ]
-#   rds_subnet_ids = module.vpc.subnet_ids
-# }
+module "rds" {
+  source = "./modules/rds"
+  security_groups_ids = [
+    module.security_groups.security_group_http_id,
+  ]
+  rds_subnet_ids = module.vpc.private_subnet_ids
+}

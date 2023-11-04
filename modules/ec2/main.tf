@@ -3,7 +3,7 @@ resource "aws_autoscaling_group" "this" {
   min_size                  = var.asg_min_size
   max_size                  = var.asg_max_size
   health_check_grace_period = 300
-  desired_capacity          = 1
+  desired_capacity          = 3
   health_check_type         = "EC2"
   force_delete              = true
 
