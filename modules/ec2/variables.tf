@@ -16,7 +16,7 @@ variable "asg_min_size" {
 
 variable "asg_max_size" {
   description = "Tamanho máximo do Auto Scaling Group"
-  default     = 3
+  default     = 10
 }
 
 variable "alb_target_group_arn" {
