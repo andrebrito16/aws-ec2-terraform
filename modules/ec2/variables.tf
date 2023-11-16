@@ -11,7 +11,7 @@ variable "instance_type" {
 
 variable "asg_min_size" {
   description = "Tamanho mínimo do Auto Scaling Group"
-  default     = 1
+  default     = 3
 }
 
 variable "asg_max_size" {
@@ -43,5 +43,15 @@ variable "aws_instance_profile_name" {
 
 variable "launch_template_id" {
   description = "id of launch_template"
+  type        = string
+}
+
+variable "load_balancer_name" {
+  description = "name of load_balancer"
+  type        = string
+}
+
+variable "load_balancer_id" {
+  description = "name of alb"
   type        = string
 }

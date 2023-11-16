@@ -7,3 +7,8 @@ output "alb_security_groups" {
   description = "value of alb_security_groups"
   value       = var.alb_security_groups
 }
+
+output "alb_id" {
+  description = "value of alb_id"
+  value       = resource.aws_lb.this.id
+}

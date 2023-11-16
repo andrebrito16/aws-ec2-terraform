@@ -1,7 +1,7 @@
-from locust import HttpUser, task
+from locust import HttpUser, task, between
 
-class HelloWorldUser(HttpUser):
-    @task
-    def health_check(self):
-        self.client.get("/")
-        self.client.get("/health")
+class QuickstartUser(HttpUser):
+
+  @task
+  def index_page(self):
+    self.client.get("/")

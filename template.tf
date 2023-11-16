@@ -1,7 +1,7 @@
 resource "aws_launch_template" "ec2_server" {
   name_prefix   = "terraform-lt-ec2-dev"
   image_id      = module.ami_selector.ami_id
-  instance_type = "t2.medium"
+  instance_type = "t2.micro"
   user_data     = data.template_cloudinit_config.ec2_application.rendered
 
   lifecycle {

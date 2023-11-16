@@ -42,8 +42,8 @@ start_docker() {
 }
 
 pull_and_run() {
-    sudo docker pull andrebrito16/ab-svc-hono
-    sudo docker run -d -p 3000:3000 -e POSTGRES_CONNECTION_STRING=${POSTGRES_CONNECTION_STRING} --restart always --name app-hono andrebrito16/ab-svc-hono
+    sudo docker pull andrebrito16/api-hits-logger
+    sudo docker run -d -p 3000:3000 -e DATABASE_URL=${POSTGRES_CONNECTION_STRING} --restart always --name app-hono andrebrito16/api-hits-logger
 }
 
 start_docker

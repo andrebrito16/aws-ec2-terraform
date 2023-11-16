@@ -44,6 +44,8 @@ module "ec2" {
   ami_id               = module.ami_selector.ami_id
   vpc_zone_identifier  = module.vpc.private_subnet_ids
   launch_template_id   = aws_launch_template.ec2_server.id
+  load_balancer_name   = var.alb_name
+  load_balancer_id     = module.alb.alb_id
 }
 
 module "rds" {
