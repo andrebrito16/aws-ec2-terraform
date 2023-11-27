@@ -12,3 +12,7 @@ output "alb_id" {
   description = "value of alb_id"
   value       = resource.aws_lb.this.id
 }
+output "alb_dns" {
+  description = "value of alb_dns"
+  value       = resource.aws_lb.this.dns_name
+}

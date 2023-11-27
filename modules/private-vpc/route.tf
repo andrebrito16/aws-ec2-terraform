@@ -1,3 +1,11 @@
+data "aws_instance" "vpn_server" {
+  instance_id = var.vpn-instance-id
+}
+
+locals {
+  vpn_server_network_interface_id = data.aws_instance.vpn_server.network_interface_id
+}
+
 resource "aws_route_table" "vpc_private_rt" {
   vpc_id = aws_vpc.main_vpc.id
 
@@ -30,6 +38,12 @@ resource "aws_route" "private_nat_gateway" {
   route_table_id         = aws_route_table.vpc_private_rt.id
   destination_cidr_block = "0.0.0.0/0"
   nat_gateway_id         = aws_nat_gateway.nat_gw.id
+}
+
+resource "aws_route" "private_vpn_server" {
+  route_table_id         = aws_route_table.vpc_private_rt.id
+  destination_cidr_block = "10.0.0.1/32"
+  network_interface_id   = local.vpn_server_network_interface_id
 }
 
 resource "aws_route_table_association" "public" {

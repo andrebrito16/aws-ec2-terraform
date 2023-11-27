@@ -7,6 +7,15 @@ wait_for_dpkg() {
     done
 }
 
+install_openvpn() {
+    wait_for_dpkg
+    sudo apt-get update
+    wait_for_dpkg
+    sudo apt-get install lzop
+    wait_for_dpkg
+    sudo apt-get install -y openvpn
+}
+
 install_docker() {
     wait_for_dpkg
     sudo apt-get update

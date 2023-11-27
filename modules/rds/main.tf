@@ -14,4 +14,7 @@ resource "aws_db_instance" "this" {
   password               = "admin-cloudw-password-test"
   db_subnet_group_name   = aws_db_subnet_group.rds_subnet.name
   skip_final_snapshot    = true
+  multi_az               = true
+  maintenance_window     = "Mon:00:00-Mon:03:00"
+  backup_window          = "03:00-06:00"
 }

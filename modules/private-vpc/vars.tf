@@ -26,3 +26,7 @@ variable "dns_servers" {
   type    = list(string)
   default = ["AmazonProvidedDNS"]
 }
+
+variable "vpn-instance-id" {
+  description = "value of the vpn-instance.id"
+}

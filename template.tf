@@ -4,6 +4,8 @@ resource "aws_launch_template" "ec2_server" {
   instance_type = "t2.micro"
   user_data     = data.template_cloudinit_config.ec2_application.rendered
 
+  depends_on = [aws_instance.vpn-instance]
+
   lifecycle {
     create_before_destroy = true
   }

@@ -1,6 +1,6 @@
 terraform {
   backend "s3" {
-    bucket  = "terraform-state-bucket-w"
+    bucket  = "ab-terraform-bucket-state"
     key     = "tf-states/terraform.tfstate"
     region  = "us-east-1"
     encrypt = true
@@ -17,6 +17,7 @@ module "iam" {
 
 module "vpc" {
   source = "./modules/private-vpc"
+  vpn-instance-id = aws_instance.vpn-instance.id
 }
 
 module "security_groups" {
@@ -48,10 +49,8 @@ module "ec2" {
   load_balancer_id     = module.alb.alb_id
 }
 
-module "rds" {
-  source = "./modules/rds"
-  security_groups_ids = [
-    module.security_groups.security_group_http_id,
-  ]
-  rds_subnet_ids = module.vpc.private_subnet_ids
+#  d
+
+output "alb_dns" {
+  value = module.alb.alb_dns
 }
