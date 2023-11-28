@@ -5,6 +5,7 @@
   - [Sumário](#sumário)
   - [Disclaimer](#disclaimer)
   - [Topologia](#topologia)
+  - [Estimativa de custos](#estimativa-de-custos)
   - [Setup de Rede](#setup-de-rede)
   - [Instruções](#instruções)
   - [Locust com IaaC](#locust-com-iaac)
@@ -22,6 +23,11 @@ O projeto tem como objetivo desenvolver uma aplicação com acesso a banco de da
 ![Topology Diagram](./public/images/diagram.png)
 
 ---
+
+## Estimativa de custos
+
+A estimativa de custos foi realizada pela calculadora da AWS e pode ser conferida no arquivo ![arquivo](public/Estimate%20-%20Projeto%20Cloud.pdf)
+
 
 ## Setup de Rede
 O setup inicial da rede envolve a criação de uma VPC e a atribuição de subnets públicas e privadas. Foram configuradas 8 subnets (4 públicas e 4 privadas), além de um internet gateway, NATs para redes internas, e outros recursos como DHCP para testes.
@@ -42,7 +48,7 @@ O setup inicial da rede envolve a criação de uma VPC e a atribuição de subne
 
 
 ## Locust com IaaC
-Foi criada uma infraestrutura na AWS para testes de carga com Locust, utilizando Terraform. Os testes envolvem um master e 4 workers, com 5000 usuários e um rate de 12/segundo. As falhas observadas se devem a instabilidades na rede e na conexão com o banco de dados.
+Foi criada uma infraestrutura na AWS para testes de carga com Locust, utilizando Terraform. Os testes envolvem um master e 4 workers, com 5000 usuários e um rate de 12/segundo. As falhas observadas se devem a instabilidades na rede e na conexão com o banco de dados. O terraform da infraestrutura do Locust está disponível [nesse link](https://github.com/andrebrito16/aws-ec2-locust)
 
 ![Requests](public/images/total_requests_per_second_1701104147.png)
 
